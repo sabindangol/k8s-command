@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: pod-manager
+  namespace: dev
+  labels:
+    app: pod-manager
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+# kubectl patch role pod-manager -n dev --type merge -p '{"metadata":{"labels":{"environment":"production"}}}'
+# kubectl patch role pod-manager -n dev --type json -p '[{"op":"add","path":"/rules/0/verbs/-","value":"deletecollection"}]'
+# kubectl patch role pod-manager -n dev --patch '{"metadata":{"labels":{"app":"pod-manager-v2"}}}'

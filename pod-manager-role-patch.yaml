@@ -1,0 +1,5 @@
+metadata:
+  labels:
+    environment: production
+    app: pod-manager-v2
+# kubectl patch role pod-manager -n dev --patch-file patch.yaml
