@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gokonn-app
+  namespace: gokonn
+spec:
+  containers:
+    - name: nginx-web-server
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+# kubectl port-forward -n gokonn gokonn-app 9000:80
+# curl http://localhost:9000
